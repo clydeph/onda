@@ -52,7 +52,8 @@ def _create_hidra_info(source, node_pool_size, monitor_params):
     )
     if transfer_type is None:
         transfer_type = dynamic_import.get_hidra_transfer_type(monitor_params)
-    elif transfer_type == "data":
+
+    if transfer_type == "data":
         # If the transfer type is data-based, requests the latest event with full
         # data, and sets the data base path to an empty path, because HiDRA will
         # provide the data directly, and there will be no need to look for the file.
@@ -152,7 +153,6 @@ def initialize_event_source(source, node_pool_size, monitor_params):
         source=source, node_pool_size=node_pool_size, monitor_params=monitor_params
     )
 
-    print("Here!")
     try:
         hidra_info.query.initiate(hidra_info.targets[1:])
     except transfer.CommunicationFailed as exc:

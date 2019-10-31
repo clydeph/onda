@@ -62,6 +62,18 @@ def get_peakfinder8_info():
     )
 
 
+def get_hidra_transport_type():
+    # type () -> named_tuples.Peakfinder8Info
+    """
+    Retrieves the HiDRA transport type information for the Pilatus detector.
+
+    Returns:
+
+        str: a string with the data transpor type
+    """
+    return "data"
+
+
 ############################
 #                          #
 # EVENT HANDLING FUNCTIONS #
